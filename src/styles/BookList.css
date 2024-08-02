@@ -1,0 +1,33 @@
+div {
+    width: 100%;
+    height: calc(100%-80px);
+}
+
+#table {
+    table-layout: fixed;
+    width: 100%;
+    flex-grow: 1;
+    text-align: center;
+    overflow: scroll;
+}
+#header-name {
+    width:20%;
+}
+#header-author {
+    width:20%;
+}
+#header-genre {
+    width:20%
+}
+#header-date {
+    width:20%; 
+}
+#header-actions {
+    width:20%;
+}
+tr {
+    height: 2em;
+}
+a {
+    padding: 10px;
+}

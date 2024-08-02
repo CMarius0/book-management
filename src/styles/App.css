@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  height: calc(100vh - 117px);
+  width: 100%;
+  overflow: hidden;
+}

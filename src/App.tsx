@@ -31,9 +31,13 @@ const router = createBrowserRouter ([
       </div>
     </>,
     children: [
-      { index:true, element: <BookList books={template_list} /> },
+      { index:true, element: <BookList /> },
       {
         path: "add",
+        element: <BookForm />
+      },
+      {
+        path: "edit/:id",
         element: <BookForm />
       }
     ]

@@ -1,10 +1,15 @@
-import "../styles/BookList.css"
+import {Link} from "react-router-dom"
 
-function BookList({books}:{books:Array<any>}) {
+import Book from "../types";
+import "../styles/BookList.css";
+import {get_books} from "../books";
 
+function BookList() {
+    let books:Array<Book> = get_books();
     return (
         <div>
         <table id="table">
+            <thead>
                 <tr>
                     <td id="header-name">Name</td>
                     <td id="header-author">Author</td>
@@ -12,7 +17,7 @@ function BookList({books}:{books:Array<any>}) {
                     <td id="header-date">Publication date</td> 
                     <td id="header-actions">Actions</td>
                 </tr>
-            
+            </thead>
             <tbody>
                 {books.map((item, index) =><tr>
                     <td>{item.name}</td>
@@ -20,8 +25,8 @@ function BookList({books}:{books:Array<any>}) {
                     <td>{item.genre}</td>
                     <td>{item.date}</td> 
                     <td>
-                        <a href={`/edit/${index}`}>Edit</a>
-                        <a href={`/delete/${index}`}>Delete</a>
+                        <Link to={`/edit/${index}`}>Edit</Link>
+                        <Link to={`/delete/${index}`}>Delete</Link>
                     </td>
                     </tr>)}
             </tbody>

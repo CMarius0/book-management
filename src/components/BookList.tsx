@@ -20,8 +20,8 @@ function BookList({books}:{books:Array<any>}) {
                     <td>{item.genre}</td>
                     <td>{item.date}</td> 
                     <td>
-                        <a>Edit</a>
-                        <a>Delete</a>
+                        <a href={`/edit/${index}`}>Edit</a>
+                        <a href={`/delete/${index}`}>Delete</a>
                     </td>
                     </tr>)}
             </tbody>

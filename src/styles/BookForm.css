@@ -1,0 +1,42 @@
+div#title {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    width: 100%;
+    font-size: large;
+    font-weight: bold;
+    
+}
+
+#BookForm {
+    width: 100%;
+    padding-left: 30px;
+}
+
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+}
+
+.input {
+    width: 45%;
+    float: left;
+    padding-bottom: 20px;
+}
+input, label {
+    display: block;
+}
+input {
+    padding-left: 0;
+    width: 80%;
+}
+button#submit {
+    align-self: flex-start;
+    padding-left: 0;
+    
+}
+
+label {
+    color: #303030;
+}

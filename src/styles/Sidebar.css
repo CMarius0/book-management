@@ -27,3 +27,6 @@
     background-color: #555555;
     color: white;
 }
+.sidebar a + a {
+    border-top: solid black 1px;
+}

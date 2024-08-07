@@ -26,8 +26,15 @@ div {
     width:20%;
 }
 tr {
-    height: 2em;
+    height: 3em;
 }
 a {
     padding: 10px;
+}
+
+td {
+    border-bottom: 1px solid gray;
+}
+table {
+    border-collapse: collapse;
 }

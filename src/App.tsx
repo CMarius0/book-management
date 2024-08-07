@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   createBrowserRouter,
-  Route,
   RouterProvider,
   Outlet
 } from "react-router-dom"
 
+import { addLoader, editLoader } from './loaders';
 
 import './styles/App.css';
 import Header from './components/Header';
@@ -14,11 +14,6 @@ import BookList from './components/BookList';
 import BookForm from './components/BookForm';
 
 
-const template_list = [{name:"alex",author:"1",genre:"a",date:"2007"},
-   {name:"paul",author:"2", genre:"b",date:"2005"},
-   {name:"bob",author:"3",genre:"c",date:"2004"},
-   {name:"212",author:"2",genre:"d",date:"2000"}
-  ];
 
 const router = createBrowserRouter ([
   {
@@ -34,12 +29,14 @@ const router = createBrowserRouter ([
       { index:true, element: <BookList /> },
       {
         path: "add",
+        loader: addLoader,
         element: <BookForm />
       },
       {
         path: "edit/:id",
+        loader: editLoader,
         element: <BookForm />
-      }
+      },
     ]
   }
 ]);

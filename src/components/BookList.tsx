@@ -1,11 +1,21 @@
 import {Link} from "react-router-dom"
+import { useState } from "react";
 
-import Book from "../types";
 import "../styles/BookList.css";
-import {get_books} from "../books";
+import {DeleteBook, get_books} from "../books";
+
+function deleteAction(event:any, id:Number) {
+    event.preventDefault();
+    if(window.confirm("Are you sure you want to delete this book?")){
+        DeleteBook(id);
+    }
+}
+
+
 
 function BookList() {
-    let books:Array<Book> = get_books();
+    let [books, setBooks] = useState(get_books());
+    //let books:Array<Book> = get_books();
     return (
         <div>
         <table id="table">
@@ -25,8 +35,8 @@ function BookList() {
                     <td>{item.genre}</td>
                     <td>{item.date}</td> 
                     <td>
-                        <Link to={`/edit/${index}`}>Edit</Link>
-                        <Link to={`/delete/${index}`}>Delete</Link>
+                        <Link to={`/edit/${item.id}`}>Edit</Link>
+                        <Link to={`/delete/${item.id}`} onClick={(event) => {deleteAction(event,item.id); setBooks(get_books())}} >Delete</Link>
                     </td>
                     </tr>)}
             </tbody>

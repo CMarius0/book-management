@@ -44,3 +44,11 @@ label {
 #id{
     display: none
 }
+
+.alert {
+    border-color: red;
+}
+
+.warning {
+    color: red;
+}

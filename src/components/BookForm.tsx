@@ -1,9 +1,11 @@
-import { ChangeEventHandler, useState } from "react";
+import { useState } from "react";
 import "../styles/BookForm.css"
 import Book from "../types";
-import { Form, Navigate, redirect, useLoaderData, useNavigate  } from "react-router-dom";
+import { Form, useLoaderData, useNavigate  } from "react-router-dom";
 
-
+/**
+ * Verifies if name input is valid
+ */
 function validateName(e:any) {
     if(e.target.value === ""){
         e.target.className = "alert";
@@ -17,6 +19,9 @@ function validateName(e:any) {
     }
 }
 
+/**
+ * Verifies if author input is valid
+ */
 function validateAuthor(e:any) {
     if(e.target.value === ""){
         e.target.className = "alert";
@@ -29,6 +34,11 @@ function validateAuthor(e:any) {
         obj.innerHTML = ""
     }
 }
+
+
+/**
+ * Verifies if genre input is valid
+ */
 function validateGenre(e:any) {
     if(e.target.value === ""){
         e.target.className = "alert";
@@ -41,6 +51,11 @@ function validateGenre(e:any) {
         obj.innerHTML = ""
     }
 }
+
+
+/**
+ * Verifies if date input is valid
+ */
 function validateDate(e:any) {
     let str = e.target.value as String;
     if(str === "") {
@@ -92,6 +107,11 @@ function validateDate(e:any) {
     obj.innerHTML = "";
 }
 
+
+/**
+ * verifies if the form is ready for submission
+ * @returns true if the form is ready for submission, otherwise false
+ */
 function canSubmit() {
     let form = document.getElementById("form") as any;
     if(
@@ -118,11 +138,11 @@ function canSubmit() {
 
 
 function BookForm () {
+    /**
+     * initialising data for use in the form
+     */
     const navigate = useNavigate();
     const {book, submit} = useLoaderData() as {book:Book, submit:Function};
-    //alert("1111-11-11".match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/));
-    //test function
-    console.log(book.id,book.name)
 
     const [ name, setName ] = useState(String(book.name));
     const [ author, setAuthor ] = useState(String(book.author));
@@ -130,7 +150,11 @@ function BookForm () {
     const [ date, setDate ] = useState(String(book.date));
     const [ disabled, setDisabled ] = useState(true);
 
-
+    /**
+     * Function for updating states of values
+     * @param e event handler
+     * @param setFunction react setState function for updating a value
+     */
     function HandleChange(e:any, setFunction:React.Dispatch<React.SetStateAction<string>>) {
         setFunction(e.target.value);
     }

@@ -14,7 +14,9 @@ import BookList from './components/BookList';
 import BookForm from './components/BookForm';
 
 
-
+/**
+ * Creates the browserRouter for the page
+ */
 const router = createBrowserRouter ([
   {
     path: "/",
@@ -50,8 +52,3 @@ function App() {
 }
 
 export default App;
-
-/*
-        <BookList books={template_list} />
-
-*/

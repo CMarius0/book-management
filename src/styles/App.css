@@ -2,9 +2,23 @@
   text-align: center;
 }
 
+/**
+*container where the sidebar and the form or the list will be put in
+*/
 #container {
   display: flex;
   height: calc(100vh - 100px);
   width: 100%;
   overflow: hidden;
+  gap: 30px;
+}
+
+
+/*
+ modify the container for users visiting on phones
+*/
+@media screen and (max-width: 700px) {
+  #container {
+    flex-direction: column;
+  }
 }

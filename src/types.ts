@@ -1,3 +1,7 @@
+/**
+ * Bookk type for items
+ */
+
 interface Book {
     id: Number,
     name: String,

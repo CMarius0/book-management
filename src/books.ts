@@ -1,5 +1,15 @@
 import Book from "./types";
 
+/**
+ * Mock api for remembering the books
+ */
+
+
+
+/**
+ * fetches the books
+ * @returns array of books
+ */
 export function get_books():Array<Book>{
     let books = localStorage.getItem("books");
     if(books == null)
@@ -7,6 +17,11 @@ export function get_books():Array<Book>{
     return JSON.parse(books);
 }
 
+/**
+ * fetches a specific book by id
+ * @param id number
+ * @returns Book with  the coresponding id or null if not found
+ */
 export function getBookById(id:Number):Book | null { 
     let str = localStorage.getItem("books");
     if(str == null)
@@ -18,6 +33,10 @@ export function getBookById(id:Number):Book | null {
     return rez; 
 }
 
+/**
+ * adds a book to the database
+ * @param book Book
+ */
 export function add_book(book:Book) {
     let str = localStorage.getItem("books");
     if(str === null){
@@ -29,10 +48,16 @@ export function add_book(book:Book) {
 
 }
 
+/**
+ * initialises the storage for the books
+ */
 export function initialize_books(){
     localStorage.setItem("books",JSON.stringify([])); 
 }
-
+/**
+ * fetches the next free id
+ * @returns Number
+ */
 export function next_id(): Number{
     let id = localStorage.getItem("nextId");
     if(id === null){
@@ -43,6 +68,10 @@ export function next_id(): Number{
     return Number(id);
 }
 
+/**
+ * replaces the book with the same id from storage
+ * @param book Book
+ */
 export function EditBook(book: Book) {
     let str = localStorage.getItem("books");
     if(str == null)
@@ -58,7 +87,10 @@ export function EditBook(book: Book) {
      localStorage.setItem("books", JSON.stringify(books));
 }
 
-
+/**
+ * deletes the book with the coresponding id
+ * @param id Number
+ */
 export function DeleteBook(id: Number) {
     let str = localStorage.getItem("books");
     if(str == null)

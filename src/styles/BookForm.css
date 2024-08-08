@@ -13,7 +13,7 @@ div#title {
 }
 
 
-form {
+#form {
     display: flex;
     flex-wrap: wrap;
     flex-flow: column;
@@ -51,4 +51,21 @@ label {
 
 .warning {
     color: red;
+}
+
+/*
+    css for users visiting on mobile devices
+*/
+@media screen and (max-width: 700px) {
+    #form {
+        text-align: center;
+        align-items: center;
+    }
+    .input{
+        align-items: center;
+        width: 50%
+    }
+    input {
+        width: 90%;
+    }
 }

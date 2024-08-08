@@ -4,6 +4,12 @@ import { useState } from "react";
 import "../styles/BookList.css";
 import {DeleteBook, get_books} from "../books";
 
+
+/**
+ * function to delete an entry
+ * @param event 
+ * @param id id of the book to be deleted
+ */
 function deleteAction(event:any, id:Number) {
     event.preventDefault();
     if(window.confirm("Are you sure you want to delete this book?")){
@@ -14,8 +20,10 @@ function deleteAction(event:any, id:Number) {
 
 
 function BookList() {
+    /**
+     * Initialising the books to be shown
+     */
     let [books, setBooks] = useState(get_books());
-    //let books:Array<Book> = get_books();
     return (
         <div>
         <table id="table">

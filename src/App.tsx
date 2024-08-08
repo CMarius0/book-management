@@ -12,6 +12,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import BookList from './components/BookList';
 import BookForm from './components/BookForm';
+import ErrorPage from './components/ErrorPage';
 
 
 /**
@@ -27,6 +28,7 @@ const router = createBrowserRouter ([
         <Outlet />
       </div>
     </>,
+    errorElement: <ErrorPage />,
     children: [
       { index:true, element: <BookList /> },
       {
